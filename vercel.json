@@ -3,9 +3,12 @@
   "name": "vault-btc",
   "buildCommand": "npm install",
   "outputDirectory": "public",
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/backend/api/$1.js" },
-    { "src": "/(.*)",     "dest": "/public/$1" }
+  "rewrites": [
+    { "source": "/api/health",        "destination": "/backend/api/health.js" },
+    { "source": "/api/wallet/(.*)",   "destination": "/backend/api/wallet.js" },
+    { "source": "/api/tx/(.*)",       "destination": "/backend/api/tx.js" },
+    { "source": "/api/market",        "destination": "/backend/api/market.js" },
+    { "source": "/(.*)",              "destination": "/public/$1" }
   ],
   "headers": [
     {
